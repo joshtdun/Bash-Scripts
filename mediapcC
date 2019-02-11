@@ -8,7 +8,7 @@ if [ -d "$HOME/windowsMounts/mediapcC" ]; then
     sudo mount //192.168.1.101/C $HOME/windowsMounts/mediapcC -o user=mediauser -o uid=1000 -o gid=1000
 elif [ -d "$HOME/windowsMounts/" ]; then        
     mkdir "$HOME/windowsMounts/mediapcC"
-    sudo mount //192.168.1.102/C $HOME/windowsMounts/mediapcC -o user=mediauser -o uid=1000 -o gid=1000
+    sudo mount //192.168.1.101/C $HOME/windowsMounts/mediapcC -o user=mediauser -o uid=1000 -o gid=1000
 else
     mkdir "$HOME/windowsMounts/"
     mkdir "$HOME/windowsMounts/mediapcC"
