@@ -1,0 +1,6 @@
+#!/bin/bash
+
+#I have various drives on a windows PC that I like to mount as the local user
+#All machines have a static IP
+
+sudo mount //192.168.1.28/C /home/jfedalien/windowsMounts/jwinalienC -o user=jwinalien -o uid=1000 -o gid=1000
