@@ -1,6 +1,16 @@
 #!/bin/bash
 
-#I have various drives on a windows PC that I like to mount as the local user
-#All machines have a static IP
+#I have various drives on a windows PC that I like to mount as the local user.
+#Create directories if not already there.
+#All machines have a static IP.
 
-sudo mount //192.168.1.101/C /home/jfedalien/windowsMounts/mediapcC -o user=mediauser -o uid=1000 -o gid=1000
+if [ -d "$HOME/windowsMounts/mediapcC" ]; then
+    sudo mount //192.168.1.101/C $HOME/windowsMounts/mediapcC -o user=mediauser -o uid=1000 -o gid=1000
+elif [ -d "$HOME/windowsMounts/" ]; then        
+    mkdir "$HOME/windowsMounts/mediapcC"
+    sudo mount //192.168.1.102/C $HOME/windowsMounts/mediapcC -o user=mediauser -o uid=1000 -o gid=1000
+else
+    mkdir "$HOME/windowsMounts/"
+    mkdir "$HOME/windowsMounts/mediapcC"
+    sudo mount //192.168.1.101/C $HOME/windowsMounts/mediapcC -o user=mediauser -o uid=1000 -o gid=1000
+fi    
