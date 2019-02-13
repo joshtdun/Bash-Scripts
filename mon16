@@ -2,11 +2,17 @@
 
 # channge built in display to a better resolution of 1600x900
 
+#create resolution because it does not exist
 cvt 1600 900 60
 
+#add new mode to xrandr
 xrandr --newmode "1600x900_60.00"  118.25  1600 1696 1856 2112  900 903 908 934 -hsync +vsync
 
+#add mode to desired display
 xrandr --addmode LVDS-1 1600x900_60.00
 
+#change display to desired resolution
 xrandr --output LVDS-1 --mode 1600x900_60.00
+
+#sanity check
 echo done
