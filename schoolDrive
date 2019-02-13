@@ -1,0 +1,20 @@
+#!/bin/bash
+
+# We have a drive at school with various training resources on it
+# I like to mount it as a local user so that I can use Nautilus 
+# to browse through it.
+# This script will create the mount point if it does
+# not exist and mount it according to my preferred convention
+
+if [ -d "$HOME/windowsMounts/schoolDrive" ]; then
+    sudo mount //10.1.10.204/storage2 $HOME/windowsMounts/schoolDrive -o username=dci -o uid=1000 -o gid=1000
+
+elif [ -d "$HOME/windowsMounts/" ]; then	
+    mkdir "$HOME/windowsMounts/schoolDrive"
+    sudo mount //10.1.10.204/storage2 $HOME/windowsMounts/schoolDrive -o username=dci -o uid=1000 -o gid=1000
+else
+    mkdir "$HOME/windowsMounts/"
+    mkdir "$HOME/windowsMounts/schoolDrive"
+    sudo mount //10.1.10.204/storage2 $HOME/windowsMounts/schoolDrive -o username=dci -o uid=1000 -o gid=1000
+
+fi    
