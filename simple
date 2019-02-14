@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# I want what I have in my $HOME/Scripts/ which is 
+# where I put my scripts I write to also be easily
+# exactable. Since $HOME/bin/ is already in my path
+# and doesn't require extra permission I use that.
+
+# -s make symbolic links instead of copying
+# -n do not overwrite an existing file
+# -v explain what is being done
+cp -nsv $HOME/Scripts/* $HOME/bin/
+
+# Since this is also a git Repo
+# and I don't want a README in $HOME/bin
+rm $HOME/bin/README.md
